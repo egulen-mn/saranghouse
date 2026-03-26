@@ -717,7 +717,7 @@ export default function SarangHousePage() {
             </div>
 
             {/* Responsive grid: 2-col on mobile, masonry-like on desktop */}
-            <div style={{
+            <div className="gallery-grid" style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
               gridTemplateRows: 'repeat(2, 220px)',
@@ -754,20 +754,6 @@ export default function SarangHousePage() {
               ))}
             </div>
 
-            {/* Mobile: 2-col simplified grid */}
-            <style>{`
-              @media (max-width: 640px) {
-                #galerie .section-container > div:last-child {
-                  grid-template-columns: repeat(2, 1fr) !important;
-                  grid-template-rows: auto !important;
-                }
-                #galerie .section-container > div:last-child > div {
-                  grid-column: span 1 !important;
-                  grid-row: span 1 !important;
-                  height: 160px;
-                }
-              }
-            `}</style>
           </div>
         </section>
 
