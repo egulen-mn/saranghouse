@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import {
-  MapPin, Phone, Clock, Instagram,
+  MapPin, Phone, Clock, Instagram, Mail,
   Star, Utensils, Leaf, Flame, X, Menu, ChevronDown, UtensilsCrossed,
 } from 'lucide-react';
 
@@ -39,11 +39,23 @@ const F = {
   sans:     { fontFamily: "'Noto Sans KR', system-ui, sans-serif" },
 };
 
-// Phone number — single place to update
-const PHONE     = '+33 5 61 00 00 00';
-const PHONE_TEL = 'tel:+33561000000';
+// Contact — single place to update
+const PHONE     = '05 31 61 33 75';
+const PHONE_TEL = 'tel:+33531613375';
+const EMAIL     = 'saranghouse31@gmail.com';
 const ADDRESS   = '25 rue du Taur, 31000 Toulouse';
 const INSTAGRAM = 'https://instagram.com/saranghouse.toulouse';
+
+// Opening hours
+const HOURS = [
+  { day: 'Mercredi',  time: '12h–15h · 18h30–21h' },
+  { day: 'Jeudi',     time: '12h–15h · 18h30–21h' },
+  { day: 'Vendredi',  time: '12h–15h · 18h30–21h' },
+  { day: 'Samedi',    time: '12h–15h · 18h30–21h' },
+  { day: 'Dimanche',  time: '12h–17h' },
+  { day: 'Lundi',     time: 'Fermé', closed: true },
+  { day: 'Mardi',     time: 'Fermé', closed: true },
+];
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -475,7 +487,7 @@ export default function SarangHousePage() {
             <div style={{ marginTop: 52, display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap' }}>
               {[
                 { icon: MapPin, text: ADDRESS },
-                { icon: Clock,  text: 'Mar–Sam · 12h–14h30 / 19h–22h' },
+                { icon: Clock,  text: 'Mer–Sam 12h–15h & 18h30–21h · Dim 12h–17h' },
                 { icon: Phone,  text: PHONE },
               ].map(({ icon: Icon, text }) => (
                 <span key={text} style={{ ...F.sans, fontSize: 12, color: C.body, display: 'flex', alignItems: 'center', gap: 6, letterSpacing: '0.03em' }}>
@@ -815,16 +827,28 @@ export default function SarangHousePage() {
                 </InfoCard>
 
                 <InfoCard icon={Clock} title="Horaires" kr="영업시간">
-                  <p style={{ ...F.sans, fontSize: 14, color: C.paper, lineHeight: 1.7, fontWeight: 500 }}>Mardi – Samedi</p>
-                  <p style={{ ...F.sans, fontSize: 14, color: C.body, lineHeight: 1.7 }}>12h00 – 14h30 · 19h00 – 22h00</p>
-                  <p style={{ ...F.sans, fontSize: 13, color: C.mutedL, marginTop: 4 }}>Dimanche &amp; Lundi : Fermé</p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3, marginTop: 2 }}>
+                    {HOURS.map(h => (
+                      <div key={h.day} style={{ display: 'flex', justifyContent: 'space-between', gap: 16 }}>
+                        <span style={{ ...F.sans, fontSize: 13, color: h.closed ? C.mutedL : C.paper, fontWeight: h.closed ? 400 : 500, minWidth: 90 }}>{h.day}</span>
+                        <span style={{ ...F.sans, fontSize: 13, color: h.closed ? C.mutedL : C.body, fontStyle: h.closed ? 'italic' : 'normal' }}>{h.time}</span>
+                      </div>
+                    ))}
+                  </div>
                 </InfoCard>
 
                 <InfoCard icon={Phone} title="Téléphone" kr="전화">
-                  <a href={PHONE_TEL} style={{ ...F.sans, fontSize: 16, color: C.paper, textDecoration: 'none', fontWeight: 500, letterSpacing: '0.03em' }}>
+                  <a href={PHONE_TEL} style={{ ...F.sans, fontSize: 16, color: C.paper, textDecoration: 'none', fontWeight: 500, letterSpacing: '0.05em' }}>
                     {PHONE}
                   </a>
                   <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, marginTop: 4 }}>Réservations conseillées le week-end</p>
+                </InfoCard>
+
+                <InfoCard icon={Mail} title="Email" kr="이메일">
+                  <a href={`mailto:${EMAIL}`} style={{ ...F.sans, fontSize: 14, color: C.gold, textDecoration: 'none', letterSpacing: '0.02em' }}>
+                    {EMAIL}
+                  </a>
+                  <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, marginTop: 4 }}>Pour groupes, événements ou questions</p>
                 </InfoCard>
 
                 <InfoCard icon={Instagram} title="Instagram" kr="소셜">
@@ -867,7 +891,7 @@ export default function SarangHousePage() {
                     Pour une expérience intime et mémorable.
                   </p>
                   <BtnPrimary href={PHONE_TEL}>
-                    <Phone size={14} aria-hidden="true" /> {PHONE}
+                    <Phone size={14} aria-hidden="true" /> Appeler · {PHONE}
                   </BtnPrimary>
                   <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, marginTop: 14 }}>
                     Réservations conseillées le week-end
@@ -911,6 +935,9 @@ export default function SarangHousePage() {
                 <p style={{ ...F.sans, fontSize: 11, color: C.mutedL, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 4 }}>Contact</p>
                 <a href={PHONE_TEL} style={{ ...F.sans, fontSize: 13, color: C.body, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 7 }}>
                   <Phone size={12} color={C.mutedL} aria-hidden="true" /> {PHONE}
+                </a>
+                <a href={`mailto:${EMAIL}`} style={{ ...F.sans, fontSize: 13, color: C.body, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 7 }}>
+                  <Mail size={12} color={C.mutedL} aria-hidden="true" /> {EMAIL}
                 </a>
                 <p style={{ ...F.sans, fontSize: 13, color: C.body, display: 'flex', alignItems: 'center', gap: 7 }}>
                   <MapPin size={12} color={C.mutedL} aria-hidden="true" /> 25 rue du Taur, Toulouse
