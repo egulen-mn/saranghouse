@@ -469,7 +469,7 @@ export default function SarangHousePage() {
             </h1>
 
             {/* Tagline */}
-            <p style={{ ...F.display, fontSize: 'clamp(16px, 2.2vw, 20px)', color: '#FFFFFF', fontStyle: 'italic', lineHeight: 1.75, marginTop: 24, marginBottom: 36, textShadow: '0 1px 10px rgba(0,0,0,0.7)' }}>
+            <p style={{ ...F.serif, fontSize: 'clamp(17px, 2.4vw, 22px)', fontWeight: 300, fontStyle: 'italic', color: '#FFFFFF', lineHeight: 1.75, marginTop: 24, marginBottom: 36, textShadow: '0 1px 10px rgba(0,0,0,0.7)', letterSpacing: '0.02em' }}>
               Faite avec amour, au cœur de Toulouse.
             </p>
 
