@@ -548,13 +548,13 @@ export default function SarangHousePage() {
                 <GoldRule />
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-                  <p style={{ ...F.display, fontSize: 17, color: C.body, lineHeight: 1.8 }}>
+                  <p style={{ ...F.sans, fontSize: 15, color: C.body, lineHeight: 1.85 }}>
                     <span style={{ ...F.serif, color: C.gold, fontSize: 20 }}>사랑</span> — en coréen, ce mot signifie <em>amour</em>. C&apos;est l&apos;ingrédient que nous mettons dans chaque plat.
                   </p>
-                  <p style={{ ...F.display, fontSize: 17, color: C.body, lineHeight: 1.8 }}>
+                  <p style={{ ...F.sans, fontSize: 15, color: C.body, lineHeight: 1.85 }}>
                     Au cœur du Vieux Toulouse, notre petite maison vous invite à un voyage entre Séoul et Tokyo. Des recettes transmises, revisitées avec soin, servies dans la chaleur d&apos;une table intime.
                   </p>
-                  <p style={{ ...F.display, fontSize: 17, color: C.body, lineHeight: 1.8 }}>
+                  <p style={{ ...F.sans, fontSize: 15, color: C.body, lineHeight: 1.85 }}>
                     Kimchi fermenté maison, bouillons mijotés des heures, riz vinaigré avec patience — ici, rien n&apos;est pressé.
                   </p>
                 </div>
@@ -590,7 +590,7 @@ export default function SarangHousePage() {
               <h2 id="menu-heading" style={{ ...F.serif, fontSize: 'clamp(28px, 5vw, 46px)', fontWeight: 300, color: C.paper, marginBottom: 12 }}>
                 Saveurs de Corée &amp; du Japon
               </h2>
-              <p style={{ ...F.display, fontStyle: 'italic', fontSize: 18, color: C.body, maxWidth: 520, margin: '0 auto' }}>
+              <p style={{ ...F.sans, fontSize: 16, color: C.body, maxWidth: 520, margin: '0 auto' }}>
                 Chaque plat est une lettre d&apos;amour à deux cultures culinaires.
               </p>
             </div>
@@ -628,7 +628,7 @@ export default function SarangHousePage() {
             </div>
 
             {/* Category description */}
-            <p style={{ ...F.display, fontStyle: 'italic', color: C.mutedL, fontSize: 16, textAlign: 'center', marginBottom: 32 }}>
+            <p style={{ ...F.sans, color: C.mutedL, fontSize: 15, textAlign: 'center', marginBottom: 32 }}>
               {cat.desc}
             </p>
 
@@ -696,7 +696,7 @@ export default function SarangHousePage() {
             {/* Footer note */}
             <div style={{ marginTop: 44, textAlign: 'center' }}>
               <GoldRule />
-              <p style={{ ...F.display, fontStyle: 'italic', color: C.mutedL, fontSize: 15 }}>
+              <p style={{ ...F.sans, color: C.mutedL, fontSize: 14 }}>
                 Menu susceptible d&apos;évoluer selon les saisons. Allergènes disponibles sur demande.
               </p>
             </div>
@@ -711,7 +711,7 @@ export default function SarangHousePage() {
               <h2 id="galerie-heading" style={{ ...F.serif, fontSize: 'clamp(28px, 5vw, 46px)', fontWeight: 300, color: C.paper, marginBottom: 12 }}>
                 L&apos;art dans l&apos;assiette
               </h2>
-              <p style={{ ...F.display, fontStyle: 'italic', fontSize: 18, color: C.body }}>
+              <p style={{ ...F.sans, fontSize: 16, color: C.body }}>
                 Chaque plat est une œuvre — éphémère et délicieuse.
               </p>
             </div>
@@ -791,7 +791,7 @@ export default function SarangHousePage() {
               <h2 id="contact-heading" style={{ ...F.serif, fontSize: 'clamp(28px, 5vw, 46px)', fontWeight: 300, color: C.paper, marginBottom: 12 }}>
                 Venez partager un repas
               </h2>
-              <p style={{ ...F.display, fontStyle: 'italic', fontSize: 18, color: C.body }}>
+              <p style={{ ...F.sans, fontSize: 16, color: C.body }}>
                 Une petite maison, un grand cœur.
               </p>
             </div>
@@ -873,7 +873,7 @@ export default function SarangHousePage() {
                   <h3 style={{ ...F.serif, fontSize: 22, color: C.paper, marginBottom: 8, fontWeight: 300 }}>
                     Réserver une table
                   </h3>
-                  <p style={{ ...F.display, fontStyle: 'italic', color: C.body, fontSize: 16, marginBottom: 24, lineHeight: 1.6 }}>
+                  <p style={{ ...F.sans, color: C.body, fontSize: 15, marginBottom: 24, lineHeight: 1.6 }}>
                     Pour une expérience intime et mémorable.
                   </p>
                   <BtnPrimary href={PHONE_TEL}>
@@ -899,7 +899,7 @@ export default function SarangHousePage() {
                   <span style={{ ...F.serif, fontSize: 17, color: C.paper }}>Sarang House</span>
                   <span style={{ ...F.sans, fontSize: 12, color: C.goldL, letterSpacing: '0.12em' }}>사랑</span>
                 </div>
-                <p style={{ ...F.display, fontStyle: 'italic', color: C.mutedL, fontSize: 14, lineHeight: 1.7 }}>
+                <p style={{ ...F.sans, color: C.mutedL, fontSize: 14, lineHeight: 1.7 }}>
                   Cuisine coréenne &amp; japonaise<br />au cœur de Toulouse.
                 </p>
               </div>
