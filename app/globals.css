@@ -1,32 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Noto+Sans+KR:wght@300;400;500&display=swap');
 @import "tailwindcss";
 
+/* ── Reset & Base ────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background-color: #0D0D0D;
   color: #F7F3EE;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
 }
 
+/* ── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0D0D0D; }
+::-webkit-scrollbar-thumb { background: #8B1A2B55; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #8B1A2B99; }
+
+/* ── Accessible Focus Ring ───────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #C9A84C;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Animations ─────────────────────────────────────────────────────────── */
 @keyframes lanternGlow {
   0%, 100% { box-shadow: 0 0 20px rgba(139,26,43,0.5), 0 0 50px rgba(139,26,43,0.25); }
   50%       { box-shadow: 0 0 35px rgba(139,26,43,0.7), 0 0 80px rgba(139,26,43,0.35); }
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-6px); }
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(-7px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
 }
 
 .lantern-glow { animation: lanternGlow 3s ease-in-out infinite; }
-.fade-up      { animation: fadeUp 0.9s ease forwards; }
-.bounce-slow  { animation: bounce 2s ease-in-out infinite; }
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.1s forwards;
+}
+
+.fade-up-delay {
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.35s forwards;
+}
+
+.bounce-slow {
+  position: absolute;
+  left: 50%;
+  animation: bounce 2.2s ease-in-out infinite;
+}
+
+/* ── Selection ──────────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(139, 26, 43, 0.35);
+  color: #F7F3EE;
+}
+
+/* ── Reduced motion ─────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* ── Mobile sticky CTA ──────────────────────────────────────────────────── */
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  padding: 12px 16px;
+  background: linear-gradient(to top, rgba(13,13,13,0.98) 70%, transparent);
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .sticky-cta { display: flex; gap: 8px; }
+}
+
+/* ── Utility ─────────────────────────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
