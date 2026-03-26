@@ -796,38 +796,19 @@ export default function SarangHousePage() {
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 40, alignItems: 'start' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 40, alignItems: 'stretch' }}>
 
-              {/* Info cards */}
+              {/* Left column — info cards */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 <InfoCard icon={MapPin} title="Adresse" kr="주소">
                   <p style={{ ...F.sans, fontSize: 14, color: C.paper, lineHeight: 1.6 }}>25 rue du Taur</p>
                   <p style={{ ...F.sans, fontSize: 14, color: C.body, lineHeight: 1.6 }}>31000 Toulouse</p>
-                  <a
-                    href="https://maps.google.com/?q=25+rue+du+Taur+Toulouse"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ ...F.sans, fontSize: 13, color: C.gold, marginTop: 6, display: 'inline-block', textDecoration: 'none', letterSpacing: '0.04em' }}>
-                    Voir sur Google Maps →
-                  </a>
-                </InfoCard>
-
-                <InfoCard icon={Clock} title="Horaires" kr="영업시간">
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3, marginTop: 2 }}>
-                    {HOURS.map(h => (
-                      <div key={h.day} style={{ display: 'flex', justifyContent: 'space-between', gap: 16 }}>
-                        <span style={{ ...F.sans, fontSize: 13, color: h.closed ? C.mutedL : C.paper, fontWeight: h.closed ? 400 : 500, minWidth: 90 }}>{h.day}</span>
-                        <span style={{ ...F.sans, fontSize: 13, color: h.closed ? C.mutedL : C.body, fontStyle: h.closed ? 'italic' : 'normal' }}>{h.time}</span>
-                      </div>
-                    ))}
-                  </div>
                 </InfoCard>
 
                 <InfoCard icon={Phone} title="Téléphone" kr="전화">
                   <a href={PHONE_TEL} style={{ ...F.sans, fontSize: 16, color: C.paper, textDecoration: 'none', fontWeight: 500, letterSpacing: '0.05em' }}>
                     {PHONE}
                   </a>
-                  <p style={{ ...F.sans, fontSize: 13, color: C.mutedL, marginTop: 4 }}>Réservations conseillées le week-end</p>
                 </InfoCard>
 
                 <InfoCard icon={Mail} title="Email" kr="이메일">
@@ -846,42 +827,31 @@ export default function SarangHousePage() {
                 </InfoCard>
               </div>
 
-              {/* Map + reservation CTA */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-                <div style={{ borderRadius: 18, overflow: 'hidden', border: `1px solid ${C.border}`, height: 260 }}>
+              {/* Right column — horaires + map + reservation CTA */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <InfoCard icon={Clock} title="Horaires" kr="영업시간">
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3, marginTop: 2 }}>
+                    {HOURS.map(h => (
+                      <div key={h.day} style={{ display: 'flex', justifyContent: 'space-between', gap: 16 }}>
+                        <span style={{ ...F.sans, fontSize: 13, color: h.closed ? C.mutedL : C.paper, fontWeight: h.closed ? 400 : 500, minWidth: 90 }}>{h.day}</span>
+                        <span style={{ ...F.sans, fontSize: 13, color: h.closed ? C.mutedL : C.body, fontStyle: h.closed ? 'italic' : 'normal' }}>{h.time}</span>
+                      </div>
+                    ))}
+                  </div>
+                </InfoCard>
+
+                {/* Map — flex:1 so it grows to fill remaining height and equalises columns */}
+                <div style={{ flex: 1, borderRadius: 18, overflow: 'hidden', border: `1px solid ${C.border}`, minHeight: 200 }}>
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.7!2d1.4437!3d43.6047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb6f5b0c0001%3A0x1!2s25+Rue+du+Taur%2C+31000+Toulouse!5e0!3m2!1sfr!2sfr!4v1"
                     width="100%"
                     height="100%"
-                    style={{ border: 0, filter: 'invert(88%) hue-rotate(180deg) saturate(0.7)' }}
+                    style={{ border: 0, display: 'block', filter: 'invert(88%) hue-rotate(180deg) saturate(0.7)' }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Sarang House — 25 rue du Taur, Toulouse"
                   />
-                </div>
-
-                {/* Reservation card — the primary conversion block */}
-                <div style={{
-                  background: `linear-gradient(135deg, ${C.crimson}35, ${C.crimson}15)`,
-                  border: `1px solid ${C.crimson}45`,
-                  borderRadius: 18, padding: '32px 28px', textAlign: 'center',
-                }}>
-                  <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 12 }}>
-                    Réservation
-                  </p>
-                  <h3 style={{ ...F.serif, fontSize: 22, color: C.paper, marginBottom: 8, fontWeight: 300 }}>
-                    Réserver une table
-                  </h3>
-                  <p style={{ ...F.sans, color: C.body, fontSize: 15, marginBottom: 24, lineHeight: 1.6 }}>
-                    Pour une expérience intime et mémorable.
-                  </p>
-                  <BtnPrimary href={PHONE_TEL}>
-                    <Phone size={14} aria-hidden="true" /> Appeler · {PHONE}
-                  </BtnPrimary>
-                  <p style={{ ...F.sans, fontSize: 13, color: C.mutedL, marginTop: 14 }}>
-                    Réservations conseillées le week-end
-                  </p>
                 </div>
               </div>
             </div>
