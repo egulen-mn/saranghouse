@@ -25,9 +25,9 @@ const C = {
   paper:     '#F7F3EE',
   // Warm off-white for body text — much easier on eyes than pure white
   body:      '#D4CFC8',
-  // Muted label text
-  muted:     '#8A8070',
-  mutedL:    '#A09585',
+  // Muted label text — bright enough to read on #0D0D0D backgrounds
+  muted:     '#9A9080',
+  mutedL:    '#B8AA9A',
   border:    'rgba(201,168,76,0.15)',
   borderHov: 'rgba(201,168,76,0.40)',
 };
@@ -44,7 +44,7 @@ const PHONE     = '05 31 61 33 75';
 const PHONE_TEL = 'tel:+33531613375';
 const EMAIL     = 'saranghouse31@gmail.com';
 const ADDRESS   = '25 rue du Taur, 31000 Toulouse';
-const INSTAGRAM = 'https://instagram.com/saranghouse.toulouse';
+const INSTAGRAM = 'https://www.instagram.com/saranghouse31/';
 
 // Opening hours
 const HOURS = [
@@ -172,7 +172,7 @@ const GALLERY = [
 
 function SectionLabel({ text, kr }: { text: string; kr?: string }) {
   return (
-    <p style={{ ...F.sans, fontSize: 11, color: C.mutedL, letterSpacing: '0.28em', textTransform: 'uppercase', marginBottom: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
+    <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, letterSpacing: '0.24em', textTransform: 'uppercase', marginBottom: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
       {text}
       {kr && <span style={{ color: C.goldL, letterSpacing: '0.1em' }}>{kr}</span>}
     </p>
@@ -201,7 +201,7 @@ function Tag({ text }: { text: string }) {
     <span style={{
       ...F.sans, background: s.bg, color: s.color,
       border: `1px solid ${s.border}`,
-      fontSize: 10, fontWeight: 500,
+      fontSize: 11, fontWeight: 500,
       padding: '3px 9px', borderRadius: 99,
       letterSpacing: '0.04em',
     }}>
@@ -279,8 +279,8 @@ function InfoCard({ icon: Icon, title, kr, children }: {
       </div>
       <div style={{ flex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 6 }}>
-          <span style={{ ...F.sans, fontSize: 13, color: C.paper, fontWeight: 500 }}>{title}</span>
-          <span style={{ ...F.sans, fontSize: 11, color: C.mutedL }}>{kr}</span>
+          <span style={{ ...F.sans, fontSize: 14, color: C.paper, fontWeight: 500 }}>{title}</span>
+          <span style={{ ...F.sans, fontSize: 12, color: C.mutedL }}>{kr}</span>
         </div>
         {children}
       </div>
@@ -336,7 +336,7 @@ export default function SarangHousePage() {
             {/* Logo */}
             <a href="#" aria-label="Sarang House — retour en haut" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
               <span style={{ ...F.serif, fontSize: 18, color: C.paper, letterSpacing: '0.02em' }}>Sarang House</span>
-              <span style={{ ...F.sans, fontSize: 11, color: C.goldL, letterSpacing: '0.15em' }}>사랑</span>
+              <span style={{ ...F.sans, fontSize: 12, color: C.goldL, letterSpacing: '0.15em' }}>사랑</span>
             </a>
 
             {/* Desktop links */}
@@ -344,13 +344,13 @@ export default function SarangHousePage() {
               {NAV.map(l => (
                 <a key={l.href} href={l.href}
                   className="nav-link"
-                  style={{ ...F.sans, fontSize: 12, color: C.body, textDecoration: 'none', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                  style={{ ...F.sans, fontSize: 13, color: C.body, textDecoration: 'none', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
                   {l.label}
                 </a>
               ))}
               <a href={PHONE_TEL}
                 style={{
-                  ...F.sans, fontSize: 12, fontWeight: 500,
+                  ...F.sans, fontSize: 13, fontWeight: 500,
                   background: C.crimson, color: C.paper,
                   padding: '9px 22px', borderRadius: 99,
                   textDecoration: 'none', letterSpacing: '0.07em',
@@ -438,9 +438,9 @@ export default function SarangHousePage() {
               priority
               quality={90}
             />
-            {/* Multi-layer overlay: bottom-heavy for text legibility, subtle sides */}
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(13,13,13,0.55) 0%, rgba(13,13,13,0.25) 40%, rgba(13,13,13,0.75) 75%, rgba(13,13,13,1) 100%)' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(13,13,13,0.45) 0%, transparent 50%, rgba(13,13,13,0.25) 100%)' }} />
+            {/* Overlay: strong uniform base + heavier bottom for text legibility */}
+            <div style={{ position: 'absolute', inset: 0, background: 'rgba(13,13,13,0.52)' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(13,13,13,0.2) 0%, rgba(13,13,13,0.55) 50%, rgba(13,13,13,1) 100%)' }} />
           </div>
 
           {/* Ghost watermark */}
@@ -454,22 +454,22 @@ export default function SarangHousePage() {
             style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '80px 24px 120px', maxWidth: 740, width: '100%' }}>
 
             {/* Eyebrow */}
-            <p style={{ ...F.sans, fontSize: 11, color: C.goldL, letterSpacing: '0.32em', textTransform: 'uppercase', marginBottom: 22 }}>
+            <p style={{ ...F.sans, fontSize: 13, color: C.goldL, letterSpacing: '0.28em', textTransform: 'uppercase', marginBottom: 22, textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}>
               사랑 · Cuisine Coréenne &amp; Japonaise · Toulouse
             </p>
 
             {/* Brand name — split for visual drama */}
             <h1 style={{ margin: 0, lineHeight: 1 }}>
-              <span style={{ ...F.serif, display: 'block', fontSize: 'clamp(60px, 11vw, 112px)', fontWeight: 300, color: C.paper, letterSpacing: '-0.01em' }}>
+              <span style={{ ...F.serif, display: 'block', fontSize: 'clamp(60px, 11vw, 112px)', fontWeight: 300, color: '#FFFFFF', letterSpacing: '-0.01em', textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>
                 Sarang
               </span>
-              <span style={{ ...F.display, display: 'block', fontSize: 'clamp(26px, 4.5vw, 46px)', fontWeight: 300, fontStyle: 'italic', color: C.gold, marginTop: 4 }}>
+              <span style={{ ...F.display, display: 'block', fontSize: 'clamp(26px, 4.5vw, 46px)', fontWeight: 300, fontStyle: 'italic', color: C.goldL, marginTop: 4, textShadow: '0 1px 12px rgba(0,0,0,0.6)' }}>
                 House
               </span>
             </h1>
 
             {/* Tagline */}
-            <p style={{ ...F.display, fontSize: 'clamp(15px, 2.2vw, 19px)', color: C.body, fontStyle: 'italic', lineHeight: 1.75, marginTop: 24, marginBottom: 36 }}>
+            <p style={{ ...F.display, fontSize: 'clamp(16px, 2.2vw, 20px)', color: '#FFFFFF', fontStyle: 'italic', lineHeight: 1.75, marginTop: 24, marginBottom: 36, textShadow: '0 1px 10px rgba(0,0,0,0.7)' }}>
               Faite avec amour, au cœur de Toulouse.
             </p>
 
@@ -483,15 +483,15 @@ export default function SarangHousePage() {
               </BtnGhost>
             </div>
 
-            {/* Practical info strip — larger, warmer, more readable */}
-            <div style={{ marginTop: 52, display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap' }}>
+            {/* Practical info strip */}
+            <div style={{ marginTop: 48, display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
               {[
                 { icon: MapPin, text: ADDRESS },
                 { icon: Clock,  text: 'Mer–Sam 12h–15h & 18h30–21h · Dim 12h–17h' },
                 { icon: Phone,  text: PHONE },
               ].map(({ icon: Icon, text }) => (
-                <span key={text} style={{ ...F.sans, fontSize: 12, color: C.body, display: 'flex', alignItems: 'center', gap: 6, letterSpacing: '0.03em' }}>
-                  <Icon size={12} color={C.goldL} aria-hidden="true" /> {text}
+                <span key={text} style={{ ...F.sans, fontSize: 13, color: '#FFFFFF', display: 'flex', alignItems: 'center', gap: 7, letterSpacing: '0.02em', textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}>
+                  <Icon size={13} color={C.goldL} aria-hidden="true" style={{ flexShrink: 0 }} /> {text}
                 </span>
               ))}
             </div>
@@ -527,7 +527,7 @@ export default function SarangHousePage() {
                     padding: '14px 18px',
                   }}>
                   <p style={{ ...F.serif, fontSize: 26, color: C.goldL, fontWeight: 300, lineHeight: 1 }}>사랑</p>
-                  <p style={{ ...F.display, fontStyle: 'italic', color: `${C.paper}BB`, fontSize: 12, marginTop: 3 }}>L&apos;amour</p>
+                  <p style={{ ...F.display, fontStyle: 'italic', color: `${C.paper}BB`, fontSize: 13, marginTop: 3 }}>L&apos;amour</p>
                 </div>
                 {/* Corner accent */}
                 <div aria-hidden="true" style={{ position: 'absolute', top: -12, left: -12, width: 56, height: 56, borderTop: `2px solid ${C.gold}45`, borderLeft: `2px solid ${C.gold}45`, borderRadius: '10px 0 0 0', pointerEvents: 'none' }} />
@@ -570,8 +570,8 @@ export default function SarangHousePage() {
                   ].map(s => (
                     <div key={s.num} style={{ textAlign: 'center', padding: '12px 8px', borderRadius: 12, background: `${C.gold}08`, border: `1px solid ${C.gold}15` }}>
                       <p style={{ ...F.serif, fontSize: 28, color: C.gold, fontWeight: 300, lineHeight: 1 }}>{s.num}</p>
-                      <p style={{ ...F.sans, fontSize: 12, color: C.paper, marginTop: 6, fontWeight: 500 }}>{s.label}</p>
-                      <p style={{ ...F.sans, fontSize: 11, color: C.mutedL, marginTop: 2 }}>{s.sub}</p>
+                      <p style={{ ...F.sans, fontSize: 13, color: C.paper, marginTop: 6, fontWeight: 500 }}>{s.label}</p>
+                      <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, marginTop: 2 }}>{s.sub}</p>
                     </div>
                   ))}
                 </div>
@@ -621,14 +621,14 @@ export default function SarangHousePage() {
                     }}>
                     <Icon size={13} aria-hidden="true" />
                     <span>{c.label}</span>
-                    <span style={{ fontSize: 11, color: active ? `${C.paper}99` : C.mutedL }}>{c.korean}</span>
+                    <span style={{ fontSize: 12, color: active ? `${C.paper}99` : C.mutedL }}>{c.korean}</span>
                   </button>
                 );
               })}
             </div>
 
             {/* Category description */}
-            <p style={{ ...F.display, fontStyle: 'italic', color: C.mutedL, fontSize: 15, textAlign: 'center', marginBottom: 32 }}>
+            <p style={{ ...F.display, fontStyle: 'italic', color: C.mutedL, fontSize: 16, textAlign: 'center', marginBottom: 32 }}>
               {cat.desc}
             </p>
 
@@ -665,26 +665,26 @@ export default function SarangHousePage() {
                       {/* Name + price row */}
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8, marginBottom: 4 }}>
                         <div>
-                          <p style={{ ...F.serif, fontSize: 15, color: C.paper, fontWeight: 500, lineHeight: 1.3 }}>{item.name}</p>
-                          <p style={{ ...F.sans, fontSize: 11, color: C.mutedL, marginTop: 2, letterSpacing: '0.05em' }}>{item.korean}</p>
+                          <p style={{ ...F.serif, fontSize: 16, color: C.paper, fontWeight: 500, lineHeight: 1.3 }}>{item.name}</p>
+                          <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, marginTop: 2, letterSpacing: '0.05em' }}>{item.korean}</p>
                         </div>
                         {/* Price — prominent, gold */}
                         <span style={{ ...F.serif, fontSize: 16, color: C.gold, fontWeight: 400, flexShrink: 0, marginTop: 1 }}>{item.price}</span>
                       </div>
                       {/* Description */}
-                      <p style={{ ...F.sans, fontSize: 12, color: C.body, lineHeight: 1.6, marginBottom: 10 }}>{item.desc}</p>
+                      <p style={{ ...F.sans, fontSize: 13, color: C.body, lineHeight: 1.6, marginBottom: 10 }}>{item.desc}</p>
                     </div>
                     {/* Chips */}
                     <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', alignItems: 'center' }}>
                       {item.tag && <Tag text={item.tag} />}
                       {item.spicy && (
-                        <span style={{ ...F.sans, fontSize: 11, color: '#E87080', display: 'flex', alignItems: 'center', gap: 3 }}>
-                          <Flame size={10} aria-hidden="true" /> Épicé
+                        <span style={{ ...F.sans, fontSize: 12, color: '#E87080', display: 'flex', alignItems: 'center', gap: 3 }}>
+                          <Flame size={11} aria-hidden="true" /> Épicé
                         </span>
                       )}
                       {item.veg && (
-                        <span style={{ ...F.sans, fontSize: 11, color: '#7DC45A', display: 'flex', alignItems: 'center', gap: 3 }}>
-                          <Leaf size={10} aria-hidden="true" /> Végé
+                        <span style={{ ...F.sans, fontSize: 12, color: '#7DC45A', display: 'flex', alignItems: 'center', gap: 3 }}>
+                          <Leaf size={11} aria-hidden="true" /> Végé
                         </span>
                       )}
                     </div>
@@ -696,7 +696,7 @@ export default function SarangHousePage() {
             {/* Footer note */}
             <div style={{ marginTop: 44, textAlign: 'center' }}>
               <GoldRule />
-              <p style={{ ...F.display, fontStyle: 'italic', color: C.mutedL, fontSize: 14 }}>
+              <p style={{ ...F.display, fontStyle: 'italic', color: C.mutedL, fontSize: 15 }}>
                 Menu susceptible d&apos;évoluer selon les saisons. Allergènes disponibles sur demande.
               </p>
             </div>
@@ -764,7 +764,7 @@ export default function SarangHousePage() {
             <div style={{ position: 'absolute', inset: 0, background: 'rgba(10,10,10,0.84)' }} />
           </div>
           <div style={{ position: 'relative', zIndex: 10, maxWidth: 660, margin: '0 auto', textAlign: 'center' }}>
-            <p style={{ ...F.sans, fontSize: 11, color: C.mutedL, letterSpacing: '0.28em', textTransform: 'uppercase', marginBottom: 28 }}>
+            <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, letterSpacing: '0.24em', textTransform: 'uppercase', marginBottom: 28 }}>
               우리의 공간 · Notre espace
             </p>
             <blockquote style={{ margin: 0 }}>
@@ -807,7 +807,7 @@ export default function SarangHousePage() {
                     href="https://maps.google.com/?q=25+rue+du+Taur+Toulouse"
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ ...F.sans, fontSize: 12, color: C.gold, marginTop: 6, display: 'inline-block', textDecoration: 'none', letterSpacing: '0.04em' }}>
+                    style={{ ...F.sans, fontSize: 13, color: C.gold, marginTop: 6, display: 'inline-block', textDecoration: 'none', letterSpacing: '0.04em' }}>
                     Voir sur Google Maps →
                   </a>
                 </InfoCard>
@@ -827,22 +827,22 @@ export default function SarangHousePage() {
                   <a href={PHONE_TEL} style={{ ...F.sans, fontSize: 16, color: C.paper, textDecoration: 'none', fontWeight: 500, letterSpacing: '0.05em' }}>
                     {PHONE}
                   </a>
-                  <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, marginTop: 4 }}>Réservations conseillées le week-end</p>
+                  <p style={{ ...F.sans, fontSize: 13, color: C.mutedL, marginTop: 4 }}>Réservations conseillées le week-end</p>
                 </InfoCard>
 
                 <InfoCard icon={Mail} title="Email" kr="이메일">
                   <a href={`mailto:${EMAIL}`} style={{ ...F.sans, fontSize: 14, color: C.gold, textDecoration: 'none', letterSpacing: '0.02em' }}>
                     {EMAIL}
                   </a>
-                  <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, marginTop: 4 }}>Pour groupes, événements ou questions</p>
+                  <p style={{ ...F.sans, fontSize: 13, color: C.mutedL, marginTop: 4 }}>Pour groupes, événements ou questions</p>
                 </InfoCard>
 
                 <InfoCard icon={Instagram} title="Instagram" kr="소셜">
                   <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer"
                     style={{ ...F.sans, fontSize: 14, color: C.gold, textDecoration: 'none', letterSpacing: '0.03em' }}>
-                    @saranghouse.toulouse
+                    @saranghouse31
                   </a>
-                  <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, marginTop: 4 }}>Suivez-nous pour nos plats du jour</p>
+                  <p style={{ ...F.sans, fontSize: 13, color: C.mutedL, marginTop: 4 }}>Suivez-nous pour nos plats du jour</p>
                 </InfoCard>
               </div>
 
@@ -867,7 +867,7 @@ export default function SarangHousePage() {
                   border: `1px solid ${C.crimson}45`,
                   borderRadius: 18, padding: '32px 28px', textAlign: 'center',
                 }}>
-                  <p style={{ ...F.sans, fontSize: 11, color: C.mutedL, letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: 12 }}>
+                  <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 12 }}>
                     Réservation
                   </p>
                   <h3 style={{ ...F.serif, fontSize: 22, color: C.paper, marginBottom: 8, fontWeight: 300 }}>
@@ -879,7 +879,7 @@ export default function SarangHousePage() {
                   <BtnPrimary href={PHONE_TEL}>
                     <Phone size={14} aria-hidden="true" /> Appeler · {PHONE}
                   </BtnPrimary>
-                  <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, marginTop: 14 }}>
+                  <p style={{ ...F.sans, fontSize: 13, color: C.mutedL, marginTop: 14 }}>
                     Réservations conseillées le week-end
                   </p>
                 </div>
@@ -897,7 +897,7 @@ export default function SarangHousePage() {
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
                   <span style={{ ...F.serif, fontSize: 17, color: C.paper }}>Sarang House</span>
-                  <span style={{ ...F.sans, fontSize: 11, color: C.goldL, letterSpacing: '0.12em' }}>사랑</span>
+                  <span style={{ ...F.sans, fontSize: 12, color: C.goldL, letterSpacing: '0.12em' }}>사랑</span>
                 </div>
                 <p style={{ ...F.display, fontStyle: 'italic', color: C.mutedL, fontSize: 14, lineHeight: 1.7 }}>
                   Cuisine coréenne &amp; japonaise<br />au cœur de Toulouse.
@@ -906,7 +906,7 @@ export default function SarangHousePage() {
 
               {/* Quick links */}
               <nav aria-label="Liens rapides" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                <p style={{ ...F.sans, fontSize: 11, color: C.mutedL, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 4 }}>Navigation</p>
+                <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 4 }}>Navigation</p>
                 {NAV.map(l => (
                   <a key={l.href} href={l.href} style={{ ...F.sans, fontSize: 13, color: C.body, textDecoration: 'none', letterSpacing: '0.04em', transition: 'color 0.2s' }}
                     onMouseEnter={e => (e.currentTarget.style.color = C.gold)}
@@ -918,7 +918,7 @@ export default function SarangHousePage() {
 
               {/* Contact quick */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                <p style={{ ...F.sans, fontSize: 11, color: C.mutedL, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 4 }}>Contact</p>
+                <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 4 }}>Contact</p>
                 <a href={PHONE_TEL} style={{ ...F.sans, fontSize: 13, color: C.body, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 7 }}>
                   <Phone size={12} color={C.mutedL} aria-hidden="true" /> {PHONE}
                 </a>
@@ -930,15 +930,15 @@ export default function SarangHousePage() {
                 </p>
                 <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer"
                   style={{ ...F.sans, fontSize: 13, color: C.body, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 7 }}>
-                  <Instagram size={12} color={C.mutedL} aria-hidden="true" /> @saranghouse.toulouse
+                  <Instagram size={12} color={C.mutedL} aria-hidden="true" /> @saranghouse31
                 </a>
               </div>
             </div>
 
             {/* Bottom bar */}
             <div style={{ borderTop: `1px solid ${C.gold}10`, paddingTop: 24, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
-              <p style={{ ...F.sans, fontSize: 12, color: C.mutedL }}>© 2026 Sarang House · Tous droits réservés</p>
-              <p style={{ ...F.serif, fontSize: 12, color: C.mutedL, letterSpacing: '0.25em' }}>
+              <p style={{ ...F.sans, fontSize: 13, color: C.mutedL }}>© 2026 Sarang House · Tous droits réservés</p>
+              <p style={{ ...F.serif, fontSize: 13, color: C.mutedL, letterSpacing: '0.22em' }}>
                 사랑은 음식 속에 있다
               </p>
             </div>
