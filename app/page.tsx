@@ -939,7 +939,7 @@ export default function SarangHousePage() {
             <div style={{ borderTop: `1px solid ${C.gold}10`, paddingTop: 24, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
               <p style={{ ...F.sans, fontSize: 13, color: C.mutedL }}>© 2026 Sarang House · Tous droits réservés</p>
               <p style={{ ...F.serif, fontSize: 13, color: C.mutedL, letterSpacing: '0.22em' }}>
-                사랑은 음식 속에 있다
+                밥 먹었어요?
               </p>
             </div>
           </div>
