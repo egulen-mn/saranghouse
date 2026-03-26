@@ -1,17 +1,32 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#0D0D0D',
+};
 
 export const metadata: Metadata = {
   title: "Sarang House — 사랑 · Cuisine Coréenne & Japonaise · Toulouse",
-  description: "Sarang House, 사랑 — l'amour dans chaque assiette. Restaurant coréen et japonais au cœur de Toulouse. Bibimbap, ramen, sushi, gyoza faits maison. 25 rue du Taur.",
-  keywords: ["restaurant coréen toulouse", "restaurant japonais toulouse", "bibimbap toulouse", "ramen toulouse", "sushi toulouse", "sarang house"],
+  description: "Sarang House, 사랑 — l'amour dans chaque assiette. Restaurant coréen et japonais au cœur de Toulouse. Bibimbap, ramen tonkotsu, sushi, gyoza faits maison. 25 rue du Taur.",
+  keywords: ["restaurant coréen toulouse", "restaurant japonais toulouse", "bibimbap toulouse", "ramen toulouse", "sushi toulouse", "sarang house", "restaurant rue du taur"],
   openGraph: {
-    title: "Sarang House — 사랑",
-    description: "Cuisine coréenne & japonaise au cœur de Toulouse. L'amour dans chaque assiette.",
-    url: "https://saranghouse.tengerly.com",
+    title: "Sarang House — 사랑 · Cuisine Coréenne & Japonaise",
+    description: "Cuisine coréenne & japonaise au cœur de Toulouse. L'amour dans chaque assiette. 25 rue du Taur.",
+    url: "https://saranghouse.fr",
     siteName: "Sarang House",
     locale: "fr_FR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sarang House — 사랑",
+    description: "Cuisine coréenne & japonaise au cœur de Toulouse.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
