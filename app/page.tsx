@@ -69,7 +69,7 @@ const NAV = [
   { label: 'Contact',  href: '#contact' },
 ];
 
-const PH = CDN + '/menu.jpg'; // placeholder for items without a photo
+const PH = null; // null = render SVG placeholder
 
 const MENU_CATS = [
   {
@@ -99,12 +99,6 @@ const MENU_CATS = [
         desc: 'Galette croustillante au kimchi fermenté maison',
         price: '11,5€', tag: null, img: PH,
         spicy: true, veg: true,
-      },
-      {
-        name: 'Galette aux fruits de mer', korean: '해물파전',
-        desc: 'Galette coréenne aux crevettes, calamars et ciboulette',
-        price: '12,5€', tag: null, img: PH,
-        spicy: false, veg: false,
       },
       {
         name: 'Gimbap', korean: '김밥',
@@ -199,7 +193,7 @@ const MENU_CATS = [
       {
         name: 'Menu A', korean: '메뉴 A',
         desc: 'Bol de riz chaud garni de légumes assortis · Protéine au choix : Bulgogi / Côtes de porc / Porc épicé / Poulet caramélisé / KFC / Crevettes / Tofu · 3 accompagnements inclus',
-        price: '11€', tag: null, img: CDN + '/menu.jpg',
+        price: '11€', tag: null, img: PH,
         spicy: false, veg: false,
       },
       {
@@ -238,6 +232,36 @@ function GoldRule() {
       <div style={{ flex: 1, height: 1, background: `linear-gradient(to right, transparent, ${C.gold}30, transparent)` }} />
       <div style={{ width: 4, height: 4, borderRadius: '50%', background: C.goldDim }} />
       <div style={{ flex: 1, height: 1, background: `linear-gradient(to right, transparent, ${C.gold}30, transparent)` }} />
+    </div>
+  );
+}
+
+// Placeholder shown for menu items without a photo
+function MenuImagePlaceholder() {
+  return (
+    <div style={{
+      width: '100%', height: '100%',
+      background: `linear-gradient(135deg, #1A1010 0%, #141414 60%, #1A1208 100%)`,
+      display: 'flex', flexDirection: 'column',
+      alignItems: 'center', justifyContent: 'center', gap: 8,
+    }}>
+      {/* Chopsticks SVG icon */}
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        {/* Bowl */}
+        <ellipse cx="18" cy="24" rx="11" ry="5" stroke="#C9A84C" strokeWidth="1.2" strokeOpacity="0.5" fill="none"/>
+        <path d="M7 24 Q7 31 18 31 Q29 31 29 24" stroke="#C9A84C" strokeWidth="1.2" strokeOpacity="0.5" fill="none"/>
+        {/* Steam wisps */}
+        <path d="M13 19 Q12 16 13 13 Q14 10 13 7" stroke="#C9A84C" strokeWidth="1" strokeOpacity="0.35" strokeLinecap="round" fill="none"/>
+        <path d="M18 18 Q17 15 18 12 Q19 9 18 6" stroke="#C9A84C" strokeWidth="1" strokeOpacity="0.35" strokeLinecap="round" fill="none"/>
+        <path d="M23 19 Q22 16 23 13 Q24 10 23 7" stroke="#C9A84C" strokeWidth="1" strokeOpacity="0.35" strokeLinecap="round" fill="none"/>
+      </svg>
+      <span style={{
+        fontFamily: "'Noto Sans KR', system-ui, sans-serif",
+        fontSize: 10, color: 'rgba(201,168,76,0.4)',
+        letterSpacing: '0.12em', textTransform: 'uppercase',
+      }}>
+        사진 준비 중
+      </span>
     </div>
   );
 }
@@ -701,15 +725,19 @@ export default function SarangHousePage() {
                     borderRadius: 18, overflow: 'hidden',
                   }}>
 
-                  {/* Image — fixed aspect ratio, no broken sizing on mobile */}
+                  {/* Image — fixed aspect ratio */}
                   <div style={{ position: 'relative', width: 140, flexShrink: 0, aspectRatio: '1/1' }}>
-                    <Image
-                      src={item.img}
-                      alt={`${item.name} — ${item.desc}`}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      sizes="140px"
-                    />
+                    {item.img ? (
+                      <Image
+                        src={item.img}
+                        alt={`${item.name} — ${item.desc}`}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        sizes="140px"
+                      />
+                    ) : (
+                      <MenuImagePlaceholder />
+                    )}
                   </div>
 
                   {/* Info */}
