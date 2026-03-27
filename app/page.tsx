@@ -39,6 +39,9 @@ const F = {
   sans:     { fontFamily: "'Noto Sans KR', system-ui, sans-serif" },
 };
 
+// R2 CDN base for this restaurant's images
+const CDN = 'https://cdn.tengerly.com/e09c928f-70f0-464e-a542-33c43222554f/menu';
+
 // Contact — single place to update
 const PHONE     = '05 31 61 33 75';
 const PHONE_TEL = 'tel:+33531613375';
@@ -74,25 +77,25 @@ const MENU_CATS = [
       {
         name: 'Bibimbap', korean: '비빔밥',
         desc: 'Riz, légumes sautés, œuf, sauce gochujang maison',
-        price: '13,50€', tag: 'Signature', img: '/images/bibimbap.jpg',
+        price: '13,50€', tag: 'Signature', img: CDN + '/bibimbap.jpg',
         spicy: true, veg: true,
       },
       {
         name: 'Tteokbokki', korean: '떡볶이',
         desc: 'Galettes de riz en sauce pimentée douce, fishcake',
-        price: '11,00€', tag: null, img: '/images/tteokbokki.jpg',
+        price: '11,00€', tag: null, img: CDN + '/tteokbokki.jpg',
         spicy: true, veg: false,
       },
       {
         name: 'Bulgogi Bowl', korean: '불고기',
         desc: 'Bœuf mariné au sésame et soja, riz, kimchi maison',
-        price: '14,50€', tag: 'Coup de cœur', img: '/images/bulgogi.jpg',
+        price: '14,50€', tag: 'Coup de cœur', img: CDN + '/bulgogi.jpg',
         spicy: false, veg: false,
       },
       {
         name: 'Mandu', korean: '만두',
         desc: 'Raviolis coréens vapeur ou frits, porc & ciboulette',
-        price: '9,50€', tag: null, img: '/images/gyoza.jpg',
+        price: '9,50€', tag: null, img: CDN + '/gyoza.jpg',
         spicy: false, veg: false,
       },
     ],
@@ -104,25 +107,25 @@ const MENU_CATS = [
       {
         name: 'Ramen Tonkotsu', korean: '라멘',
         desc: 'Bouillon de porc mijoté 12h, chashu, œuf mollet, nori',
-        price: '14,00€', tag: 'Signature', img: '/images/ramen.jpg',
+        price: '14,00€', tag: 'Signature', img: CDN + '/ramen.jpg',
         spicy: false, veg: false,
       },
       {
         name: 'Sushi Assortiment', korean: '스시',
         desc: '8 pièces : saumon, thon, crevette, avocat — riz vinaigré',
-        price: '15,50€', tag: null, img: '/images/sushi.jpg',
+        price: '15,50€', tag: null, img: CDN + '/sushi.jpg',
         spicy: false, veg: false,
       },
       {
         name: 'Karaage', korean: '가라아게',
         desc: 'Poulet frit japonais, sauce ponzu, mayonnaise yuzu',
-        price: '10,50€', tag: 'Populaire', img: '/images/karaage.jpg',
+        price: '10,50€', tag: 'Populaire', img: CDN + '/karaage.jpg',
         spicy: false, veg: false,
       },
       {
         name: 'Gyoza', korean: '교자',
         desc: 'Raviolis grillés, porc & chou, sauce tsuyu maison',
-        price: '8,50€', tag: null, img: '/images/gyoza.jpg',
+        price: '8,50€', tag: null, img: CDN + '/gyoza.jpg',
         spicy: false, veg: false,
       },
     ],
@@ -134,25 +137,25 @@ const MENU_CATS = [
       {
         name: 'Doenjang Jjigae', korean: '된장찌개',
         desc: 'Soupe miso coréenne, tofu, légumes de saison, champignons',
-        price: '10,00€', tag: null, img: '/images/soup.jpg',
+        price: '10,00€', tag: null, img: CDN + '/soup.jpg',
         spicy: false, veg: true,
       },
       {
         name: 'Sundubu Jjigae', korean: '순두부찌개',
         desc: 'Soupe de tofu soyeux épicée, palourdes, œuf',
-        price: '11,50€', tag: 'Coup de cœur', img: '/images/soup.jpg',
+        price: '11,50€', tag: 'Coup de cœur', img: CDN + '/soup.jpg',
         spicy: true, veg: false,
       },
       {
         name: 'Miso Ramen', korean: '미소 라멘',
         desc: 'Bouillon miso, maïs, beurre, champignons shiitake, menma',
-        price: '13,00€', tag: null, img: '/images/ramen.jpg',
+        price: '13,00€', tag: null, img: CDN + '/ramen.jpg',
         spicy: false, veg: true,
       },
       {
         name: 'Soupe Miso', korean: '미소시루',
         desc: 'Miso blanc, tofu, algues wakame, ciboule — accompagnement',
-        price: '3,50€', tag: null, img: '/images/soup.jpg',
+        price: '3,50€', tag: null, img: CDN + '/soup.jpg',
         spicy: false, veg: true,
       },
     ],
@@ -160,12 +163,12 @@ const MENU_CATS = [
 ];
 
 const GALLERY = [
-  { src: '/images/bibimbap.jpg',   alt: 'Bibimbap — riz coréen aux légumes sautés',    kr: '비빔밥',   featured: true },
-  { src: '/images/ramen.jpg',      alt: 'Ramen tonkotsu — bouillon mijoté 12 heures',  kr: '라멘',     featured: false },
-  { src: '/images/bulgogi.jpg',    alt: 'Bulgogi — bœuf mariné au sésame',             kr: '불고기',   featured: false },
-  { src: '/images/sushi.jpg',      alt: 'Sushi assortiment — 8 pièces fraîches',       kr: '스시',     featured: false },
-  { src: '/images/karaage.jpg',    alt: 'Karaage — poulet frit japonais',              kr: '가라아게', featured: false },
-  { src: '/images/tteokbokki.jpg', alt: 'Tteokbokki — galettes de riz épicées',        kr: '떡볶이',   featured: false },
+  { src: CDN + '/bibimbap.jpg',   alt: 'Bibimbap — riz coréen aux légumes sautés',    kr: '비빔밥',   featured: true },
+  { src: CDN + '/ramen.jpg',      alt: 'Ramen tonkotsu — bouillon mijoté 12 heures',  kr: '라멘',     featured: false },
+  { src: CDN + '/bulgogi.jpg',    alt: 'Bulgogi — bœuf mariné au sésame',             kr: '불고기',   featured: false },
+  { src: CDN + '/sushi.jpg',      alt: 'Sushi assortiment — 8 pièces fraîches',       kr: '스시',     featured: false },
+  { src: CDN + '/karaage.jpg',    alt: 'Karaage — poulet frit japonais',              kr: '가라아게', featured: false },
+  { src: CDN + '/tteokbokki.jpg', alt: 'Tteokbokki — galettes de riz épicées',        kr: '떡볶이',   featured: false },
 ];
 
 // ─── Shared sub-components ────────────────────────────────────────────────────
@@ -431,7 +434,7 @@ export default function SarangHousePage() {
           {/* Background */}
           <div style={{ position: 'absolute', inset: 0 }} aria-hidden="true">
             <Image
-              src="/images/hero-real.jpg"
+              src={`${CDN}/hero-real.jpg`}
               alt=""
               fill
               style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
@@ -514,7 +517,7 @@ export default function SarangHousePage() {
               {/* Image column */}
               <div style={{ position: 'relative' }}>
                 <div style={{ position: 'relative', borderRadius: 20, overflow: 'hidden', aspectRatio: '4/5' }}>
-                  <Image src="/images/about.jpg" alt="La cuisine de Sarang House — faite avec amour" fill style={{ objectFit: 'cover' }} />
+                  <Image src={`${CDN}/about.jpg`} alt="La cuisine de Sarang House — faite avec amour" fill style={{ objectFit: 'cover' }} />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,13,13,0.45), transparent 60%)' }} aria-hidden="true" />
                 </div>
                 {/* Floating badge */}
@@ -760,7 +763,7 @@ export default function SarangHousePage() {
         {/* ── QUOTE STRIP ───────────────────────────────────────────────────── */}
         <section aria-label="Citation" style={{ position: 'relative', padding: '88px 24px', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', inset: 0 }} aria-hidden="true">
-            <Image src="/images/interior.jpg" alt="" fill style={{ objectFit: 'cover', objectPosition: 'center 40%' }} />
+            <Image src={`${CDN}/interior.jpg`} alt="" fill style={{ objectFit: 'cover', objectPosition: 'center 40%' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'rgba(10,10,10,0.84)' }} />
           </div>
           <div style={{ position: 'relative', zIndex: 10, maxWidth: 660, margin: '0 auto', textAlign: 'center' }}>
