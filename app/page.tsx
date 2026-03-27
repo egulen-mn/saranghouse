@@ -109,7 +109,7 @@ const MENU_CATS = [
       {
         name: 'Planche de poulet frit aux deux goûts', korean: '치킨 플래터',
         desc: 'Poulet frit coréen croustillant, deux sauces maison',
-        price: '14,9€', tag: 'Signature', img: CDN + '/planche de poulet.jpeg',
+        price: '14,9€', tag: 'Signature', img: CDN + '/planche%20de%20poulet.jpeg',
         spicy: false, veg: false,
       },
     ],
@@ -211,7 +211,7 @@ const GALLERY = [
   { src: CDN + '/tteokbokki.jpeg',        alt: 'Tteokbokki — galettes de riz épicées',          kr: '떡볶이',   featured: false },
   { src: CDN + '/japchae.jpeg',           alt: 'Japchae — nouilles de patate douce sautées',    kr: '잡채',     featured: false },
   { src: CDN + '/mandu.jpg',              alt: 'Mandu — raviolis coréens',                      kr: '만두',     featured: false },
-  { src: CDN + '/planche de poulet.jpeg', alt: 'Planche de poulet frit coréen',                 kr: '치킨',     featured: false },
+  { src: CDN + '/planche%20de%20poulet.jpeg', alt: 'Planche de poulet frit coréen',              kr: '치킨',     featured: false },
   { src: CDN + '/gimbap.jpeg',            alt: 'Gimbap — rouleau de riz coréen',                kr: '김밥',     featured: false },
 ];
 
@@ -840,10 +840,7 @@ export default function SarangHousePage() {
 
         {/* ── QUOTE STRIP ───────────────────────────────────────────────────── */}
         <section aria-label="Citation" style={{ position: 'relative', padding: '88px 24px', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', inset: 0 }} aria-hidden="true">
-            <Image src={`${CDN}/interior.jpg`} alt="" fill style={{ objectFit: 'cover', objectPosition: 'center 40%' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'rgba(10,10,10,0.84)' }} />
-          </div>
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, #0D0808 0%, #1A1010 50%, #0D0A06 100%)' }} aria-hidden="true" />
           <div style={{ position: 'relative', zIndex: 10, maxWidth: 660, margin: '0 auto', textAlign: 'center' }}>
             <p style={{ ...F.sans, fontSize: 12, color: C.mutedL, letterSpacing: '0.24em', textTransform: 'uppercase', marginBottom: 28 }}>
               우리의 공간 · Notre espace

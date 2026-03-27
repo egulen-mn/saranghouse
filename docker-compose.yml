@@ -11,7 +11,7 @@ services:
     restart: unless-stopped
     environment:
       NODE_ENV: production
-      PORT: "3000"
+      PORT: "3001"
       HOSTNAME: "0.0.0.0"
       NEXT_PUBLIC_SITE_URL: "https://saranghouse.tengerly.com"
     networks:
@@ -21,7 +21,7 @@ services:
     cap_drop:
       - ALL
     healthcheck:
-      test: ["CMD-SHELL", "node -e \"require('http').get('http://localhost:3000/',r=>{process.exit(r.statusCode<500?0:1)}).on('error',()=>process.exit(1))\""]
+      test: ["CMD-SHELL", "node -e \"require('http').get('http://localhost:3001/',r=>{process.exit(r.statusCode<500?0:1)}).on('error',()=>process.exit(1))\""]
       interval: 30s
       timeout: 10s
       retries: 3
