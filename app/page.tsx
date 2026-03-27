@@ -69,106 +69,156 @@ const NAV = [
   { label: 'Contact',  href: '#contact' },
 ];
 
+const PH = CDN + '/menu.jpg'; // placeholder for items without a photo
+
 const MENU_CATS = [
   {
-    id: 'coreen', label: 'Coréen', korean: '한국',
-    icon: Flame, desc: 'Saveurs authentiques de Séoul',
+    id: 'entrees', label: 'Entrées', korean: '에피타이저',
+    icon: Utensils, desc: 'Pour commencer — saveurs vives et généreuses',
     items: [
-      {
-        name: 'Bibimbap', korean: '비빔밥',
-        desc: 'Riz, légumes sautés, œuf, sauce gochujang maison',
-        price: '13,50€', tag: 'Signature', img: CDN + '/bibimbap.jpg',
-        spicy: true, veg: true,
-      },
-      {
-        name: 'Tteokbokki', korean: '떡볶이',
-        desc: 'Galettes de riz en sauce pimentée douce, fishcake',
-        price: '11,00€', tag: null, img: CDN + '/tteokbokki.jpg',
-        spicy: true, veg: false,
-      },
-      {
-        name: 'Bulgogi Bowl', korean: '불고기',
-        desc: 'Bœuf mariné au sésame et soja, riz, kimchi maison',
-        price: '14,50€', tag: 'Coup de cœur', img: CDN + '/bulgogi.jpg',
-        spicy: false, veg: false,
-      },
       {
         name: 'Mandu', korean: '만두',
         desc: 'Raviolis coréens vapeur ou frits, porc & ciboulette',
-        price: '9,50€', tag: null, img: CDN + '/gyoza.jpg',
+        price: '7€', tag: null, img: CDN + '/mandu.jpg',
+        spicy: false, veg: false,
+      },
+      {
+        name: 'Tteokbokki', korean: '떡볶이',
+        desc: 'Galettes de riz en sauce gochujang, fishcake',
+        price: '10€', tag: null, img: CDN + '/tteokbokki.jpeg',
+        spicy: true, veg: false,
+      },
+      {
+        name: 'Japchae', korean: '잡채',
+        desc: 'Nouilles de patate douce sautées aux légumes et bœuf',
+        price: '12,5€', tag: 'Coup de cœur', img: CDN + '/japchae.jpeg',
+        spicy: false, veg: false,
+      },
+      {
+        name: 'Galette au kimchi', korean: '김치전',
+        desc: 'Galette croustillante au kimchi fermenté maison',
+        price: '11,5€', tag: null, img: PH,
+        spicy: true, veg: true,
+      },
+      {
+        name: 'Galette aux fruits de mer', korean: '해물파전',
+        desc: 'Galette coréenne aux crevettes, calamars et ciboulette',
+        price: '12,5€', tag: null, img: PH,
+        spicy: false, veg: false,
+      },
+      {
+        name: 'Gimbap', korean: '김밥',
+        desc: 'Rouleau de riz coréen garni de légumes et œuf',
+        price: '10€', tag: null, img: CDN + '/gimbap.jpeg',
+        spicy: false, veg: false,
+      },
+      {
+        name: 'Planche de poulet frit aux deux goûts', korean: '치킨 플래터',
+        desc: 'Poulet frit coréen croustillant, deux sauces maison',
+        price: '14,9€', tag: 'Signature', img: CDN + '/planche de poulet.jpeg',
         spicy: false, veg: false,
       },
     ],
   },
   {
-    id: 'japonais', label: 'Japonais', korean: '일본',
-    icon: Leaf, desc: 'Délicatesse et précision japonaises',
+    id: 'plats', label: 'Plats', korean: '메인',
+    icon: Flame, desc: 'Plats généreux, mijotés avec soin',
     items: [
       {
-        name: 'Ramen Tonkotsu', korean: '라멘',
-        desc: 'Bouillon de porc mijoté 12h, chashu, œuf mollet, nori',
-        price: '14,00€', tag: 'Signature', img: CDN + '/ramen.jpg',
+        name: 'Bulgogi', korean: '불고기',
+        desc: 'Barbecue coréen — bœuf mariné au sésame et soja',
+        price: '16€', tag: 'Signature', img: PH,
         spicy: false, veg: false,
       },
       {
-        name: 'Sushi Assortiment', korean: '스시',
-        desc: '8 pièces : saumon, thon, crevette, avocat — riz vinaigré',
-        price: '15,50€', tag: null, img: CDN + '/sushi.jpg',
+        name: 'So Galbijjim', korean: '소갈비찜',
+        desc: 'Côtes de bœuf braisées aux légumes, sauce sucrée-salée',
+        price: '18€', tag: 'Coup de cœur', img: PH,
         spicy: false, veg: false,
       },
       {
-        name: 'Karaage', korean: '가라아게',
-        desc: 'Poulet frit japonais, sauce ponzu, mayonnaise yuzu',
-        price: '10,50€', tag: 'Populaire', img: CDN + '/karaage.jpg',
-        spicy: false, veg: false,
+        name: 'Dwaeji Galbijjim', korean: '돼지갈비찜',
+        desc: 'Côtes de porc braisées, épicées et caramélisées',
+        price: '14€', tag: null, img: PH,
+        spicy: true, veg: false,
       },
       {
-        name: 'Gyoza', korean: '교자',
-        desc: 'Raviolis grillés, porc & chou, sauce tsuyu maison',
-        price: '8,50€', tag: null, img: CDN + '/gyoza.jpg',
+        name: 'Jeyuk Bokkeum', korean: '제육볶음',
+        desc: 'Porc sauté épicé au gochujang, oignons et ciboule',
+        price: '14€', tag: null, img: PH,
+        spicy: true, veg: false,
+      },
+      {
+        name: 'Bibimbap', korean: '비빔밥',
+        desc: 'Bol de riz garni de légumes assortis, œuf et sauce gochujang',
+        price: '13,5€', tag: null, img: CDN + '/bibimbap.jpeg',
+        spicy: false, veg: true,
+      },
+      {
+        name: 'Jajangmyeon', korean: '짜장면',
+        desc: 'Nouilles coréennes à la sauce noire de haricots fermentés',
+        price: '12€', tag: null, img: CDN + '/jajangmyeon.jpeg',
         spicy: false, veg: false,
       },
     ],
   },
   {
     id: 'soupes', label: 'Soupes', korean: '국물',
-    icon: Utensils, desc: 'Réconfort dans chaque bol',
+    icon: Leaf, desc: 'Bouillons réconfortants, mijotés avec patience',
     items: [
       {
-        name: 'Doenjang Jjigae', korean: '된장찌개',
-        desc: 'Soupe miso coréenne, tofu, légumes de saison, champignons',
-        price: '10,00€', tag: null, img: CDN + '/soup.jpg',
-        spicy: false, veg: true,
+        name: 'Soupe au bœuf et vermicelles', korean: '소고기당면국',
+        desc: 'Bouillon de bœuf, vermicelles de patate douce, légumes',
+        price: '15€', tag: null, img: PH,
+        spicy: false, veg: false,
       },
       {
-        name: 'Sundubu Jjigae', korean: '순두부찌개',
-        desc: 'Soupe de tofu soyeux épicée, palourdes, œuf',
-        price: '11,50€', tag: 'Coup de cœur', img: CDN + '/soup.jpg',
+        name: 'Soupe épicée au poulet', korean: '닭개장',
+        desc: 'Soupe coréenne épicée au poulet effiloché et légumes',
+        price: '14€', tag: null, img: PH,
         spicy: true, veg: false,
       },
       {
-        name: 'Miso Ramen', korean: '미소 라멘',
-        desc: 'Bouillon miso, maïs, beurre, champignons shiitake, menma',
-        price: '13,00€', tag: null, img: CDN + '/ramen.jpg',
-        spicy: false, veg: true,
+        name: 'Soupe au kimchi', korean: '김치찌개',
+        desc: 'Soupe de kimchi fermenté, tofu et porc',
+        price: '13,5€', tag: 'Coup de cœur', img: PH,
+        spicy: true, veg: false,
       },
       {
-        name: 'Soupe Miso', korean: '미소시루',
-        desc: 'Miso blanc, tofu, algues wakame, ciboule — accompagnement',
-        price: '3,50€', tag: null, img: CDN + '/soup.jpg',
-        spicy: false, veg: true,
+        name: 'Soupe de nouilles au goût doux', korean: '국수',
+        desc: 'Bouillon délicat aux nouilles coréennes, légumes de saison',
+        price: '15€', tag: null, img: PH,
+        spicy: false, veg: false,
+      },
+    ],
+  },
+  {
+    id: 'menus', label: 'Menus', korean: '세트',
+    icon: Star, desc: 'Formules complètes avec accompagnements inclus',
+    items: [
+      {
+        name: 'Menu A', korean: '메뉴 A',
+        desc: 'Bol de riz chaud garni de légumes assortis · Protéine au choix : Bulgogi / Côtes de porc / Porc épicé / Poulet caramélisé / KFC / Crevettes / Tofu · 3 accompagnements inclus',
+        price: '11€', tag: null, img: CDN + '/menu.jpg',
+        spicy: false, veg: false,
+      },
+      {
+        name: 'Menu B', korean: '메뉴 B',
+        desc: 'Bol de riz et japchae · Protéine au choix : Bulgogi / Côtes de porc / Porc épicé / Poulet caramélisé / KFC / Crevettes / Tofu · 6 accompagnements inclus',
+        price: '13€', tag: 'Coup de cœur', img: CDN + '/japchae.jpeg',
+        spicy: false, veg: false,
       },
     ],
   },
 ];
 
 const GALLERY = [
-  { src: CDN + '/bibimbap.jpg',   alt: 'Bibimbap — riz coréen aux légumes sautés',    kr: '비빔밥',   featured: true },
-  { src: CDN + '/ramen.jpg',      alt: 'Ramen tonkotsu — bouillon mijoté 12 heures',  kr: '라멘',     featured: false },
-  { src: CDN + '/bulgogi.jpg',    alt: 'Bulgogi — bœuf mariné au sésame',             kr: '불고기',   featured: false },
-  { src: CDN + '/sushi.jpg',      alt: 'Sushi assortiment — 8 pièces fraîches',       kr: '스시',     featured: false },
-  { src: CDN + '/karaage.jpg',    alt: 'Karaage — poulet frit japonais',              kr: '가라아게', featured: false },
-  { src: CDN + '/tteokbokki.jpg', alt: 'Tteokbokki — galettes de riz épicées',        kr: '떡볶이',   featured: false },
+  { src: CDN + '/bibimbap.jpeg',          alt: 'Bibimbap — bol de riz coréen aux légumes',      kr: '비빔밥',   featured: true },
+  { src: CDN + '/tteokbokki.jpeg',        alt: 'Tteokbokki — galettes de riz épicées',          kr: '떡볶이',   featured: false },
+  { src: CDN + '/japchae.jpeg',           alt: 'Japchae — nouilles de patate douce sautées',    kr: '잡채',     featured: false },
+  { src: CDN + '/mandu.jpg',              alt: 'Mandu — raviolis coréens',                      kr: '만두',     featured: false },
+  { src: CDN + '/planche de poulet.jpeg', alt: 'Planche de poulet frit coréen',                 kr: '치킨',     featured: false },
+  { src: CDN + '/gimbap.jpeg',            alt: 'Gimbap — rouleau de riz coréen',                kr: '김밥',     featured: false },
 ];
 
 // ─── Shared sub-components ────────────────────────────────────────────────────
@@ -294,7 +344,7 @@ function InfoCard({ icon: Icon, title, kr, children }: {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function SarangHousePage() {
-  const [activeCat, setActiveCat]   = useState('coreen');
+  const [activeCat, setActiveCat]   = useState('entrees');
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled]     = useState(false);
   const mainRef = useRef<HTMLElement>(null);
@@ -434,7 +484,7 @@ export default function SarangHousePage() {
           {/* Background */}
           <div style={{ position: 'absolute', inset: 0 }} aria-hidden="true">
             <Image
-              src={`${CDN}/hero-real.jpg`}
+              src={`${CDN}/hero_sarang.jpg`}
               alt=""
               fill
               style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
@@ -458,7 +508,7 @@ export default function SarangHousePage() {
 
             {/* Eyebrow */}
             <p style={{ ...F.sans, fontSize: 13, color: C.goldL, letterSpacing: '0.28em', textTransform: 'uppercase', marginBottom: 22, textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}>
-              사랑 · Cuisine Coréenne &amp; Japonaise · Toulouse
+              사랑 · Cuisine Coréenne · Toulouse
             </p>
 
             {/* Brand name — split for visual drama */}
@@ -517,7 +567,7 @@ export default function SarangHousePage() {
               {/* Image column */}
               <div style={{ position: 'relative' }}>
                 <div style={{ position: 'relative', borderRadius: 20, overflow: 'hidden', aspectRatio: '4/5' }}>
-                  <Image src={`${CDN}/about.jpg`} alt="La cuisine de Sarang House — faite avec amour" fill style={{ objectFit: 'cover' }} />
+                  <Image src={`${CDN}/master.jpeg`} alt="La cuisine de Sarang House — faite avec amour" fill style={{ objectFit: 'cover' }} />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,13,13,0.45), transparent 60%)' }} aria-hidden="true" />
                 </div>
                 {/* Floating badge */}
@@ -555,7 +605,7 @@ export default function SarangHousePage() {
                     <span style={{ ...F.serif, color: C.gold, fontSize: 20 }}>사랑</span> — en coréen, ce mot signifie <em>amour</em>. C&apos;est l&apos;ingrédient que nous mettons dans chaque plat.
                   </p>
                   <p style={{ ...F.sans, fontSize: 15, color: C.body, lineHeight: 1.85 }}>
-                    Au cœur du Vieux Toulouse, notre petite maison vous invite à un voyage entre Séoul et Tokyo. Des recettes transmises, revisitées avec soin, servies dans la chaleur d&apos;une table intime.
+                    Au cœur du Vieux Toulouse, notre petite maison vous invite à un voyage au cœur de Séoul. Des recettes transmises, revisitées avec soin, servies dans la chaleur d&apos;une table intime.
                   </p>
                   <p style={{ ...F.sans, fontSize: 15, color: C.body, lineHeight: 1.85 }}>
                     Kimchi fermenté maison, bouillons mijotés des heures, riz vinaigré avec patience — ici, rien n&apos;est pressé.
@@ -569,7 +619,7 @@ export default function SarangHousePage() {
                   {[
                     { num: '25',   label: 'Rue du Taur', sub: 'Toulouse' },
                     { num: '100%', label: 'Fait maison',  sub: '손수 만든' },
-                    { num: '2',    label: 'Cuisines',     sub: '코리아 · 재팬' },
+                    { num: '4',    label: 'Catégories',   sub: '엔트레 · 플랫 · 수프 · 세트' },
                   ].map(s => (
                     <div key={s.num} style={{ textAlign: 'center', padding: '12px 8px', borderRadius: 12, background: `${C.gold}08`, border: `1px solid ${C.gold}15` }}>
                       <p style={{ ...F.serif, fontSize: 28, color: C.gold, fontWeight: 300, lineHeight: 1 }}>{s.num}</p>
@@ -591,10 +641,10 @@ export default function SarangHousePage() {
             <div style={{ textAlign: 'center', marginBottom: 56 }}>
               <SectionLabel text="Notre Menu" kr="메뉴" />
               <h2 id="menu-heading" style={{ ...F.serif, fontSize: 'clamp(28px, 5vw, 46px)', fontWeight: 300, color: C.paper, marginBottom: 12 }}>
-                Saveurs de Corée &amp; du Japon
+                Saveurs authentiques de Corée
               </h2>
               <p style={{ ...F.sans, fontSize: 16, color: C.body, maxWidth: 520, margin: '0 auto' }}>
-                Chaque plat est une lettre d&apos;amour à deux cultures culinaires.
+                Chaque plat est une lettre d&apos;amour à la cuisine coréenne.
               </p>
             </div>
 
@@ -873,7 +923,7 @@ export default function SarangHousePage() {
                   <span style={{ ...F.sans, fontSize: 12, color: C.goldL, letterSpacing: '0.12em' }}>사랑</span>
                 </div>
                 <p style={{ ...F.sans, color: C.mutedL, fontSize: 14, lineHeight: 1.7 }}>
-                  Cuisine coréenne &amp; japonaise<br />au cœur de Toulouse.
+                  Cuisine coréenne<br />au cœur de Toulouse.
                 </p>
               </div>
 
